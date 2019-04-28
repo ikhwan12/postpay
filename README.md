@@ -1,6 +1,6 @@
 # postpay
 Postpay is the author payment management and site analysis based on wordpress website.
-It build under codeigniter framework.
+The statistic data is collected by jetpack plugin. It build under codeigniter framework.
 It runs already on http://postpay.nihaoindo.com/
 
 # Features
