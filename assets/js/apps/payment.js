@@ -38,7 +38,7 @@ $(function (){
             'excelHtml5',
             'pdfHtml5'
         ],
-        responsive: false,
+        responsive: true,
         processing: true,
         ajax: {
               url: siteurl+'payment/GetTableData/'+date[0]+"/"+date[1],

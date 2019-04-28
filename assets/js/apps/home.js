@@ -34,45 +34,27 @@ $(function (){
     
     var authorIDs = [];
     $("#authors").find('option').each(function (){
-        if($(this).attr('value') !== 'undefined' && $(this).attr('value') !== 'All'){
+        if($(this).attr('value') !== 'undefined'){
             authorIDs.push($(this).attr('value'));
         }
     });
     
-    function GetMonthlyTotalPost(){
-        $.ajax({
-            url: siteurl+'home/GetMonthlyTotalPost',
-            data: {ids: authorIDs, year:$("#year").val()},
-            type: 'POST',
-            dataType: 'JSON',
-            success: function (data, textStatus, jqXHR) {
-                morrisChrt.setData(data);
-                ClickEvent();
-                CreateDailyChart(moment().format("MMMM"));
-            }
-        });
-    }
-    
-    function GetMonthlyTotalPostByID(){
-        $.ajax({
-            url: siteurl+'home/GetMonthlyTotalPostByID',
-            data: {id: $("#authors").val(), year:$("#year").val()},
-            type: 'POST',
-            dataType: 'JSON',
-            success: function (data, textStatus, jqXHR) {
-                morrisChrt.setData(data);
-                ClickEvent();
-                CreateDailyChart(moment().format("MMMM"));
-            }
-         });
-    }
-    
-    GetMonthlyTotalPost();
-    
-    function CreateDailyChart(month){
+    $.ajax({
+        url: siteurl+'home/GetMonthlyTotalPost',
+        data: {ids: authorIDs, year:$("#year").val()},
+        type: 'POST',
+        dataType: 'JSON',
+        success: function (data, textStatus, jqXHR) {
+            morrisChrt.setData(data);
+            ClickEvent();
+            CreateDailyChart(moment().format("MMMM"));
+        }
+     });
+     
+     function CreateDailyChart(month){
         var id = $("#authors").val();
         var url = siteurl+'home/GetDailyTotalPostByID';
-        if(id == "All"){
+        if(id == ""){
             id = authorIDs;
             url = siteurl+'home/GetDailyTotalPost';
         }
@@ -106,11 +88,17 @@ $(function (){
      }
      
      $('#authors, #year').change(function (){
-        if($("#authors").val() == "All"){
-            GetMonthlyTotalPost();
-        }else{
-            GetMonthlyTotalPostByID();
-        }
+        $.ajax({
+            url: siteurl+'home/GetMonthlyTotalPostByID',
+            data: {id: $("#authors").val(), year:$("#year").val()},
+            type: 'POST',
+            dataType: 'JSON',
+            success: function (data, textStatus, jqXHR) {
+                morrisChrt.setData(data);
+                ClickEvent();
+                CreateDailyChart(moment().format("MMMM"));
+            }
+         });
     });
     
 });

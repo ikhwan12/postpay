@@ -2,7 +2,7 @@ $(function (){
     var link = window.location.href.split('/');
     var size = link.length;
     var detailTable = $('#datatable1').DataTable({
-        responsive: false,
+        responsive: true,
         processing: true,
         ajax: {
               url: siteurl+'post/PostDetail/'+link[size-3]+"/"+link[size-2]+"/"+link[size-1],
