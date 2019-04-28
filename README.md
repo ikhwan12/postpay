@@ -19,4 +19,3 @@ License
 ----
 
 MIT
-
