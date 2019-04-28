@@ -14,6 +14,12 @@ It runs already on http://postpay.nihaoindo.com/
 - ### Payment Form
 <img alt="logo" width="100%" src="img/payment.PNG">
 
+- ### Post View Form
+<img alt="logo" width="100%" src="img/post-views.PNG">
+
+- ### Site Statistic Form
+<img alt="logo" width="100%" src="img/site-stats.PNG">
+
 - ### Settings Form
 <img alt="logo" width="100%" src="img/settings.PNG">
 
