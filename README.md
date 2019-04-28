@@ -10,8 +10,10 @@ It runs already on http://postpay.nihaoindo.com/
 
 - ### Dashboard Form
 <img alt="logo" width="100%" src="img/dashboard.PNG">
+
 - ### Payment Form
 <img alt="logo" width="100%" src="img/payment.PNG">
+
 - ### Settings Form
 <img alt="logo" width="100%" src="img/settings.PNG">
 
